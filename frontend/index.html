@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypto News Aggregator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🔍 Search Cryptocurrency News</h1>
+    <input type="text" id="search" placeholder="Enter crypto name/symbol...">
+    <button onclick="fetchNews()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        async function fetchNews() {
+            const query = document.getElementById('search').value;
+            const res = await fetch(`/search/${query}`);
+            const text = await res.text();
+            document.getElementById('results').innerText = text;
+        }
+    </script>
+</body>
+</html>
